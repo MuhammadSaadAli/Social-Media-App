@@ -1,13 +1,16 @@
 import React from 'react'
-import Login from './Component/Login/Index'
 import './App.css';
+
+// Components
+// import Routes from './Component/Routes/Routes'
+import TopBar from './Component/Home/Topbar/Topbar'
+
 
 function App() {
   return (
     <div className="App">
-      
-     
-      <Login />
+      <TopBar/>
+            {/* <Routes /> */}
     </div>
   );
 }
