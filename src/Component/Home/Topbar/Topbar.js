@@ -13,6 +13,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -163,13 +165,13 @@ export default function TopBar() {
   return (
     <div className={classes.grow}>
       <AppBar position="static">
-        <Toolbar>
-          <Typography className={classes.title}  variant="h6" noWrap style={{fontFamily: 'Lobster cursive' }}>
+        <Toolbar  style={{backgroundColor:'#FBFBFF', color:'black'}} >
+          <Typography className={classes.title}  variant="h6" noWrap style={{fontFamily: 'Lobster cursive', marginLeft:'10vw' }}>
           
             Social Media App
             
           </Typography>
-          <div className={classes.search}>
+          <div className={classes.search} style={{marginLeft:'16vw'}}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
@@ -184,14 +186,21 @@ export default function TopBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
+          <IconButton aria-label="show 4 new mails" color="inherit">
+              
+              <Badge badgeContent={0} color="secondary">
+                <HomeIcon />
+              </Badge>
+            </IconButton>
             <IconButton aria-label="show 4 new mails" color="inherit">
+              
               <Badge badgeContent={0} color="secondary">
                 <MailIcon />
               </Badge>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
               <Badge badgeContent={0} color="secondary">
-                <NotificationsIcon />
+                <FavoriteBorderIcon />
               </Badge>
             </IconButton>
             <IconButton
