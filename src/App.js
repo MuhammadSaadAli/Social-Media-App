@@ -3,14 +3,14 @@ import './App.css';
 
 // Components
 // import Routes from './Component/Routes/Routes'
-import TopBar from './Component/Home/Topbar/Topbar'
+import Profile from './Component/Home/Profile/index'
 
 
 function App() {
   return (
     <div className="App">
-      <TopBar/>
-            {/* <Routes /> */}
+      {/* <Routes /> */}
+      <Profile />
     </div>
   );
 }
