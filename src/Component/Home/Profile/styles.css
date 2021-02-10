@@ -3,6 +3,7 @@
     width: 20vh;
     height: 20vh;
     border-radius: 50%;
+    margin-right:  15vh;
 }
 
 .flex{
@@ -30,5 +31,20 @@ flex-direction: row;
     display:flex;
     justify-content:space-between;
     align-items:center;
+}
 
+.pictures{
+    width: 30vh;
+    height: 30vh;
+    margin-right: 7px;
+    margin-left: 7px;
+    flex: 1;
+}
+
+.Posts{
+display: flex;
+justify-content:center;
+align-items:center;
+align-content: center;
+flex-wrap: wrap;
 }

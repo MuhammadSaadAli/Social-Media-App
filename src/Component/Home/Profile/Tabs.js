@@ -8,6 +8,9 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
+// Components
+import Posts from './Posts'
+
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -21,7 +24,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box p={3}>
-                    <Typography>{children}</Typography>
+                    {children}
                 </Box>
             )}
         </div>
@@ -53,6 +56,10 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '8vh',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    posts: {
+        display: 'flex',
+        justifyContent: 'center',
     }
 }));
 
@@ -74,9 +81,9 @@ export default function SimpleTabs() {
                     <Tab label="TAGGED" {...a11yProps(3)} />
                 </Tabs>
             </AppBar>
-            <TabPanel value={value} index={0}>
-                POSTS
-      </TabPanel>
+            <TabPanel className={classes.posts} value={value} index={0}>
+                <Posts />
+            </TabPanel>
             <TabPanel value={value} index={1}>
                 IGTV
       </TabPanel>

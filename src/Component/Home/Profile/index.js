@@ -18,7 +18,7 @@ const Profile = () => {
             <br />
             <div className='flex'>
                 <img alt="Avatar" src={profilePicture} className="avatar" />
-                <div>
+                <div >
 
                     <div className='nameSection' >
                         <div className='marginLeft'>{name}</div>
@@ -35,7 +35,7 @@ const Profile = () => {
                         <div className='marginLeft row'>
                             <p> Followers </p><span>{followers}</span>
                         </div>
-                        <div className='marginLeft row'>  <p> Following </p><span>{following}</span> </div>
+                        <div className='marginLeft row'>  <p> Following </p> <p> {following} </p> </div>
 
                     </div>
                     <div className='nameSection' >

@@ -3,11 +3,13 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-//   Link
+  //   Link
 } from "react-router-dom";
 
 import Login from '../Login/Index'
 import SignUp from '../SignUp/Index'
+import Profile from '../Home/Profile/index'
+import Feed from '../Home/Feed/index'
 
 
 export default function Routes() {
@@ -31,16 +33,22 @@ export default function Routes() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          
-        <Route exact path="/">
+
+          <Route exact path="/">
             <Login />
           </Route>
           <Route path="/signup">
             <SignUp />
           </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/Feed">
+            <Feed />
+          </Route>
         </Switch>
       </div>
-    </Router>   
+    </Router>
   );
 }
 
