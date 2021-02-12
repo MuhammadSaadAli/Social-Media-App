@@ -4,8 +4,7 @@ import Car from '../../../Assets/Images/car.jpg';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-// import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-import TextField from '@material-ui/core/TextField';
+import { InputAdornment, Input, Badge } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
@@ -15,7 +14,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import TelegramIcon from '@material-ui/icons/Telegram';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import { FaRegComment } from 'react-icons/fa';
+import Picker from 'emoji-picker-react';
 
 
 
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
         height: 0,
-        paddingTop: '90%', // 16:9
+        paddingTop: '90%',
     },
     expand: {
         transform: 'rotate(0deg)',
@@ -41,17 +42,48 @@ const useStyles = makeStyles((theme) => ({
         width: '8vh',
         height: '8vh',
         borderRadius: '50%',
-    }
+    },
+    commentAvatar: {
+        width: '5vh',
+        height: '5vh',
+        borderRadius: '50%',
+    },
 }));
 
 export default function HomePosts() {
     const [like, setLike] = useState(false)
+    const [emojiPicker, setEmojiPicker] = useState(false)
+    const [initialText, setInitialText] = useState('');
+    const [comment, setComment] = useState([])
+    const [viewAllComment, setViewAllComment] = useState(false)
+
+    const name = 'Muhammad Saad Ali';
     const classes = useStyles();
+
+    const onEmojiClick = (event, emojiObject) => {
+        setInitialText(initialText + emojiObject.emoji);
+    };
+
+    const ToggleViewComment = () => {
+        setViewAllComment(!viewAllComment)
+    }
+
+    const CommentAdded = () => {
+        setComment([...comment, { name: name, text: initialText, picture: profilePicture }])
+        setInitialText('')
+    };
+
+    const TextChange = (e) => {
+        setInitialText(e.target.value);
+    };
 
     const Heart = () => {
         setLike(!like)
-
     }
+    const Emoji = () => {
+        setEmojiPicker(!emojiPicker)
+    }
+
     return (
         <Card className={classes.root}>
             <CardHeader
@@ -104,10 +136,82 @@ export default function HomePosts() {
 
             </div>
 
+            { comment.length > 2 ? comment.filter((com, ind) => {
+                return (
+                    <div>
+                        <Badge badgeContent={` View all comments ${comment.length - 1}`} onClick={ToggleViewComment} />
+                        <div style={{ display: 'flex', justifyContent: 'space-evenly' }} key={comment.length}>
+                            <img alt="avatar" className={classes.commentAvatar} src={com[comment.length - 1].picture} />
+                            <div style={{ flexDirection: 'row', textAlign: 'initial' }}>
+                                <div> {com[comment.length - 1].name}</div>
+                                <div> {com[comment.length - 1].text}</div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }) : comment.map((com, ind) => {
+                return (
+                    <div style={{ display: 'flex', justifyContent: 'space-evenly' }} key={ind}>
+                        <img alt="avatar" className={classes.commentAvatar} src={com.picture} />
+                        <div style={{ flexDirection: 'row', textAlign: 'initial' }}>
+                            <div> {com.name}</div>
+                            <div> {com.text}</div>
+                        </div>
+                    </div>
+                )
+            }
+
+
+            )}
+            { viewAllComment && comment.length > 2 ? comment.map((com, ind) => {
+                return (
+                    <div style={{ display: 'flex', justifyContent: 'space-evenly' }} key={ind}>
+                        <Badge badgeContent='Hide comments' onClick={ToggleViewComment} />
+                        <img alt="avatar" className={classes.commentAvatar} src={com.picture} />
+                        <div style={{ flexDirection: 'row', textAlign: 'initial' }}>
+                            <div> {com.name}</div>
+                            <div> {com.text}</div>
+                        </div>
+                    </div>
+                )
+            }
+            ) : null}
             <hr />
 
-            {/* <TextareaAutosize style={{ width: '80%' }} aria-label="minimum height" rowsMin={2} placeholder="Add a comment" /> */}
-            <TextField id="standard-basic" label="Add a comment here" > </TextField>
+
+            <Input
+                id="input-with-icon-adornment"
+                onChange={TextChange}
+                value={initialText}
+                style={{ width: "95%" }}
+                endAdornment={
+                    <InputAdornment position="end">
+                        <button onClick={CommentAdded} style={{
+                            color: 'blue', backgroundColor: 'Transparent',
+                            backgroundRepeat: 'no-repeat',
+                            border: 'none',
+                            cursor: 'pointer',
+                            overflow: 'hidden'
+                        }} >Post</button>
+                    </InputAdornment>
+                }
+                startAdornment={
+
+                    <InputAdornment position="start">
+
+                        <button style={{
+                            color: 'black', backgroundColor: 'Transparent',
+                            backgroundRepeat: 'no-repeat',
+                            border: 'none',
+                            cursor: 'pointer',
+                            overflow: 'hidden'
+                        }} >  <EmojiEmotionsIcon onClick={Emoji} /> </button>
+                    </InputAdornment>
+
+                }
+            />
+
+            {emojiPicker ? <Picker onEmojiClick={onEmojiClick} /> : null}
 
         </Card>
     );
