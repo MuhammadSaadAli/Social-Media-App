@@ -4,7 +4,7 @@ import Car from '../../../Assets/Images/car.jpg';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import { InputAdornment, Input, Badge } from '@material-ui/core';
+import { InputAdornment, Input } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
@@ -84,6 +84,7 @@ export default function HomePosts() {
         setEmojiPicker(!emojiPicker)
     }
 
+
     return (
         <Card className={classes.root}>
             <CardHeader
@@ -135,22 +136,14 @@ export default function HomePosts() {
                 </CardActions>
 
             </div>
-
-            { comment.length > 2 ? comment.filter((com, ind) => {
-                return (
-                    <div>
-                        <Badge badgeContent={` View all comments ${comment.length - 1}`} onClick={ToggleViewComment} />
-                        <div style={{ display: 'flex', justifyContent: 'space-evenly' }} key={comment.length}>
-                            <img alt="avatar" className={classes.commentAvatar} src={com[comment.length - 1].picture} />
-                            <div style={{ flexDirection: 'row', textAlign: 'initial' }}>
-                                <div> {com[comment.length - 1].name}</div>
-                                <div> {com[comment.length - 1].text}</div>
-                            </div>
-                        </div>
-                    </div>
-                )
-            }) : comment.map((com, ind) => {
-                return (
+            {!viewAllComment
+                && comment.length > 2 ? <span onClick={ToggleViewComment}>{` View all ${comment.length} comments`}</span>
+                : null
+            }
+            {viewAllComment && <span onClick={ToggleViewComment}>Hide Comments</span>}
+            {comment
+                .filter((_, i) => !viewAllComment ? i < 2 : _)
+                .map((com, ind) => (
                     <div style={{ display: 'flex', justifyContent: 'space-evenly' }} key={ind}>
                         <img alt="avatar" className={classes.commentAvatar} src={com.picture} />
                         <div style={{ flexDirection: 'row', textAlign: 'initial' }}>
@@ -158,24 +151,9 @@ export default function HomePosts() {
                             <div> {com.text}</div>
                         </div>
                     </div>
-                )
+                ))
             }
 
-
-            )}
-            { viewAllComment && comment.length > 2 ? comment.map((com, ind) => {
-                return (
-                    <div style={{ display: 'flex', justifyContent: 'space-evenly' }} key={ind}>
-                        <Badge badgeContent='Hide comments' onClick={ToggleViewComment} />
-                        <img alt="avatar" className={classes.commentAvatar} src={com.picture} />
-                        <div style={{ flexDirection: 'row', textAlign: 'initial' }}>
-                            <div> {com.name}</div>
-                            <div> {com.text}</div>
-                        </div>
-                    </div>
-                )
-            }
-            ) : null}
             <hr />
 
 
@@ -185,15 +163,23 @@ export default function HomePosts() {
                 value={initialText}
                 style={{ width: "95%" }}
                 endAdornment={
-                    <InputAdornment position="end">
-                        <button onClick={CommentAdded} style={{
+                    initialText === '' ? <InputAdornment position="end">
+                        <button disabled onClick={CommentAdded} style={{
                             color: 'blue', backgroundColor: 'Transparent',
                             backgroundRepeat: 'no-repeat',
                             border: 'none',
                             cursor: 'pointer',
                             overflow: 'hidden'
                         }} >Post</button>
-                    </InputAdornment>
+                    </InputAdornment> : <InputAdornment position="end">
+                            <button onClick={CommentAdded} style={{
+                                color: 'blue', backgroundColor: 'Transparent',
+                                backgroundRepeat: 'no-repeat',
+                                border: 'none',
+                                cursor: 'pointer',
+                                overflow: 'hidden'
+                            }} >Post</button>
+                        </InputAdornment>
                 }
                 startAdornment={
 

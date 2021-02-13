@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -116,8 +117,8 @@ export default function TopBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link style={{ color: 'black', textDecoration: 'none' }} to='/profile'> Profile </Link> </MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link style={{ color: 'black', textDecoration: 'none' }}  to='/setting'> Settings </Link></MenuItem>
     </Menu>
   );
 
@@ -132,6 +133,14 @@ export default function TopBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <MenuItem>
+        <IconButton aria-label="show 4 new mails" color="inherit">
+          <Badge badgeContent={0} color="secondary">
+            <HomeIcon />
+          </Badge>
+        </IconButton>
+        <Link style={{ color: 'black', textDecoration: 'none' }} to="/feed">Home</Link>
+      </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="secondary">
@@ -189,7 +198,8 @@ export default function TopBar() {
           <IconButton aria-label="show 4 new mails" color="inherit">
               
               <Badge badgeContent={0} color="secondary">
-                <HomeIcon />
+               
+        <Link style={{textDecoration: 'none', color:"black" }} color="secondary" to="/feed"> <HomeIcon /></Link>
               </Badge>
             </IconButton>
             <IconButton aria-label="show 4 new mails" color="inherit">
