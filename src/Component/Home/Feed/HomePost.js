@@ -21,8 +21,12 @@ import Picker from 'emoji-picker-react';
 
 
 const useStyles = makeStyles((theme) => ({
+    container: {
+        display: 'flex',
+        width: '98%',
+    },
     root: {
-        maxWidth: 345,
+        width: '100%'
     },
     media: {
         height: 0,
@@ -86,119 +90,121 @@ export default function HomePosts() {
 
 
     return (
-        <Card className={classes.root}>
-            <CardHeader
-                avatar={
-                    <img src={profilePicture} className={classes.avatar} alt='Saad' />
-                }
-                action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                    </IconButton>
-                }
-                title="Muhammad Saad Ali"
-                subheader="Ferrari World"
-            />
-            <CardMedia
-                className={classes.media}
-                image={Car}
-                title="Car"
-            />
-            <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
-                    Ferrari World Abu Dhabi is a mostly indoors amusement park on Yas Island in Abu Dhabi, United Arab Emirates. It is the first Ferrari-branded theme park and has the record for the largest space frame structure ever built. Formula Rossa, the world's fastest roller coaster, is also located here
+        <div className={classes.container}>
+            <Card className={classes.root}>
+                <CardHeader
+                    avatar={
+                        <img src={profilePicture} className={classes.avatar} alt='Saad' />
+                    }
+                    action={
+                        <IconButton aria-label="settings">
+                            <MoreVertIcon />
+                        </IconButton>
+                    }
+                    title="Muhammad Saad Ali"
+                    subheader="Ferrari World"
+                />
+                <CardMedia
+                    className={classes.media}
+                    image={Car}
+                    title="Car"
+                />
+                <CardContent>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        Ferrari World Abu Dhabi is a mostly indoors amusement park on Yas Island in Abu Dhabi, United Arab Emirates. It is the first Ferrari-branded theme park and has the record for the largest space frame structure ever built. Formula Rossa, the world's fastest roller coaster, is also located here
         </Typography>
-            </CardContent>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <CardActions disableSpacing>
-                    <IconButton onClick={Heart} style={like ? { color: 'red' } : { color: '' }} aria-label="add to favorites">
-                        <FavoriteIcon />
-                    </IconButton>
-                    <IconButton aria-label="comment">
-                        <FaRegComment />
-                    </IconButton>
-                    <IconButton aria-label="share">
-                        <TelegramIcon />
-                    </IconButton>
+                </CardContent>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <CardActions disableSpacing>
+                        <IconButton onClick={Heart} style={like ? { color: 'red' } : { color: '' }} aria-label="add to favorites">
+                            <FavoriteIcon />
+                        </IconButton>
+                        <IconButton aria-label="comment">
+                            <FaRegComment />
+                        </IconButton>
+                        <IconButton aria-label="share">
+                            <TelegramIcon />
+                        </IconButton>
 
 
 
-                </CardActions>
+                    </CardActions>
 
-                <CardActions disableSpacing>
+                    <CardActions disableSpacing>
 
 
-                    <IconButton aria-label="share">
+                        <IconButton aria-label="share">
 
-                        <BookmarkBorderIcon />
-                    </IconButton>
+                            <BookmarkBorderIcon />
+                        </IconButton>
 
-                </CardActions>
+                    </CardActions>
 
-            </div>
-            {!viewAllComment
-                && comment.length > 2 ? <span onClick={ToggleViewComment}>{` View all ${comment.length} comments`}</span>
-                : null
-            }
-            {viewAllComment && <span onClick={ToggleViewComment}>Hide Comments</span>}
-            {comment
-                .filter((_, i) => !viewAllComment ? i < 2 : _)
-                .map((com, ind) => (
-                    <div style={{ display: 'flex', justifyContent: 'space-evenly' }} key={ind}>
-                        <img alt="avatar" className={classes.commentAvatar} src={com.picture} />
-                        <div style={{ flexDirection: 'row', textAlign: 'initial' }}>
-                            <div> {com.name}</div>
-                            <div> {com.text}</div>
+                </div>
+                {!viewAllComment
+                    && comment.length > 2 ? <span onClick={ToggleViewComment}>{` View all ${comment.length} comments`}</span>
+                    : null
+                }
+                {viewAllComment && <span onClick={ToggleViewComment}>Hide Comments</span>}
+                {comment
+                    .filter((_, i) => !viewAllComment ? i < 2 : _)
+                    .map((com, ind) => (
+                        <div style={{ display: 'flex', justifyContent: 'space-evenly' }} key={ind}>
+                            <img alt="avatar" className={classes.commentAvatar} src={com.picture} />
+                            <div style={{ flexDirection: 'row', textAlign: 'initial' }}>
+                                <div> {com.name}</div>
+                                <div> {com.text}</div>
+                            </div>
                         </div>
-                    </div>
-                ))
-            }
+                    ))
+                }
 
-            <hr />
+                <hr />
 
 
-            <Input
-                id="input-with-icon-adornment"
-                onChange={TextChange}
-                value={initialText}
-                style={{ width: "95%" }}
-                endAdornment={
-                    initialText === '' ? <InputAdornment position="end">
-                        <button disabled onClick={CommentAdded} style={{
-                            color: 'blue', backgroundColor: 'Transparent',
-                            backgroundRepeat: 'no-repeat',
-                            border: 'none',
-                            cursor: 'pointer',
-                            overflow: 'hidden'
-                        }} >Post</button>
-                    </InputAdornment> : <InputAdornment position="end">
-                            <button onClick={CommentAdded} style={{
+                <Input
+                    id="input-with-icon-adornment"
+                    onChange={TextChange}
+                    value={initialText}
+                    style={{ width: "95%" }}
+                    endAdornment={
+                        initialText === '' ? <InputAdornment position="end">
+                            <button disabled onClick={CommentAdded} style={{
                                 color: 'blue', backgroundColor: 'Transparent',
                                 backgroundRepeat: 'no-repeat',
                                 border: 'none',
                                 cursor: 'pointer',
                                 overflow: 'hidden'
                             }} >Post</button>
+                        </InputAdornment> : <InputAdornment position="end">
+                                <button onClick={CommentAdded} style={{
+                                    color: 'blue', backgroundColor: 'Transparent',
+                                    backgroundRepeat: 'no-repeat',
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                    overflow: 'hidden'
+                                }} >Post</button>
+                            </InputAdornment>
+                    }
+                    startAdornment={
+
+                        <InputAdornment position="start">
+
+                            <button style={{
+                                color: 'black', backgroundColor: 'Transparent',
+                                backgroundRepeat: 'no-repeat',
+                                border: 'none',
+                                cursor: 'pointer',
+                                overflow: 'hidden'
+                            }} >  <EmojiEmotionsIcon onClick={Emoji} /> </button>
                         </InputAdornment>
-                }
-                startAdornment={
 
-                    <InputAdornment position="start">
+                    }
+                />
 
-                        <button style={{
-                            color: 'black', backgroundColor: 'Transparent',
-                            backgroundRepeat: 'no-repeat',
-                            border: 'none',
-                            cursor: 'pointer',
-                            overflow: 'hidden'
-                        }} >  <EmojiEmotionsIcon onClick={Emoji} /> </button>
-                    </InputAdornment>
+                {emojiPicker ? <Picker onEmojiClick={onEmojiClick} /> : null}
 
-                }
-            />
-
-            {emojiPicker ? <Picker onEmojiClick={onEmojiClick} /> : null}
-
-        </Card>
+            </Card>
+        </div>
     );
 }

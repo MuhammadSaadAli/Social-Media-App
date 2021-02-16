@@ -10,6 +10,7 @@ import Login from '../Login/Index'
 import SignUp from '../SignUp/Index'
 import Profile from '../Home/Profile/index'
 import Feed from '../Home/Feed/index'
+import Settings from '../Home/Setting/Index'
 
 
 export default function Routes() {
@@ -45,6 +46,10 @@ export default function Routes() {
           </Route>
           <Route path="/Feed">
             <Feed />
+          </Route>
+
+          <Route path="/setting">
+            <Settings />
           </Route>
         </Switch>
       </div>
