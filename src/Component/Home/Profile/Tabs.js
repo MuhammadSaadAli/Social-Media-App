@@ -58,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
     },
     posts: {
-        display: 'flex',
         justifyContent: 'center',
     }
 }));

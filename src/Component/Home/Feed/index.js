@@ -15,7 +15,7 @@ export default function Feed() {
                     <Stories />
                     <HomePosts />
                 </div>
-                <div>
+                <div className="hidden">
                     <Suggestion />
                 </div>
             </div>

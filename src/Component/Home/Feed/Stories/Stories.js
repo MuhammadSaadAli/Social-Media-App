@@ -99,7 +99,7 @@ export default function Stories() {
             {
                 breakpoint: 966,
                 settings: {
-                    slidesToShow: 5,
+                    slidesToShow: 6,
                     slidesToScroll: 3,
 
                 }
@@ -107,14 +107,14 @@ export default function Stories() {
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 5,
                     slidesToScroll: 3,
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 4,
                     slidesToScroll: 2
                 }
             },

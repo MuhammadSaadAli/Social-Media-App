@@ -24,7 +24,7 @@ export default function Suggestion() {
             <div className="suggestion">
 
                 <p> Suggestion for You </p>
-                <p style={{ marginLeft: '10%' }} > See all</p>
+                <p > See all</p>
 
             </div>
 
