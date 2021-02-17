@@ -28,51 +28,65 @@ export default function Suggestion() {
 
             </div>
 
+            <div className='suggestionContainer'>
+                <div className='suggestionProfile'>
 
-            <div className='suggestionProfile'>
+                    <div className='image'>
 
-                <div className='image'>
-
-                    <img alt="avater" src={profilePicture} className="suggestionAvatar" />
+                        <img alt="avater" src={profilePicture} className="suggestionAvatar" />
+                    </div>
+                    <div className='suggestionName'>
+                        <p><strong>{userName}</strong></p>
+                        <p className='gray'>Suggestion for you </p>
+                    </div>
                 </div>
-                <div className='suggestionName'>
-                    <p><strong>{userName}</strong></p>
-                    <p className='gray'>Suggestion for you </p>
-                </div>
+                <div className='follow'>Follow</div>
             </div>
-            <div className='suggestionProfile'>
+            <div className='suggestionContainer'>
+                <div className='suggestionProfile'>
 
-                <div className='image'>
+                    <div className='image'>
 
-                    <img alt="avater" src={profilePicture} className="suggestionAvatar" />
+                        <img alt="avater" src={profilePicture} className="suggestionAvatar" />
+                    </div>
+                    <div className='suggestionName'>
+                        <p><strong>{userName}</strong></p>
+                        <p className='gray'>Suggestion for you </p>
+                    </div>
                 </div>
-                <div className='suggestionName'>
-                    <p><strong>{userName}</strong></p>
-                    <p className='gray'>Suggestion for you </p>
-                </div>
+                <div className='follow'>Follow</div>
             </div>
-            <div className='suggestionProfile'>
 
-                <div className='image'>
+            <div className='suggestionContainer'>
+                <div className='suggestionProfile'>
 
-                    <img alt="avater" src={profilePicture} className="suggestionAvatar" />
+                    <div className='image'>
+
+                        <img alt="avater" src={profilePicture} className="suggestionAvatar" />
+                    </div>
+                    <div className='suggestionName'>
+                        <p><strong>{userName}</strong></p>
+                        <p className='gray'>Suggestion for you </p>
+                    </div>
                 </div>
-                <div className='suggestionName'>
-                    <p><strong>{userName}</strong></p>
-                    <p className='gray'>Suggestion for you </p>
-                </div>
+                <div className='follow'>Follow</div>
             </div>
-            <div className='suggestionProfile'>
 
-                <div className='image'>
+            <div className='suggestionContainer'>
+                <div className='suggestionProfile'>
 
-                    <img alt="avater" src={profilePicture} className="suggestionAvatar" />
+                    <div className='image'>
+
+                        <img alt="avater" src={profilePicture} className="suggestionAvatar" />
+                    </div>
+                    <div className='suggestionName'>
+                        <p><strong>{userName}</strong></p>
+                        <p className='gray'>Suggestion for you </p>
+                    </div>
                 </div>
-                <div className='suggestionName'>
-                    <p><strong>{userName}</strong></p>
-                    <p className='gray'>Suggestion for you </p>
-                </div>
+                <div className='follow'>Follow</div>
             </div>
+
         </div>
     )
 

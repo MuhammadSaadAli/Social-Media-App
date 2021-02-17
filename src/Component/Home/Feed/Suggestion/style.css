@@ -8,8 +8,9 @@
 
 .myProfile{
     display:grid;
-    grid-template-columns: 20% 60%;
+    grid-template-columns: auto auto;
     margin-top: 5%;
+    width:min-content;
 }
 .suggestion{
     display: flex;
@@ -24,30 +25,43 @@
 }
 
 .avatar{
-    width: 13vh;
-    height: 13vh;
+    width: 90%;
+    height: 95%;
     border-radius: 50%;
     grid-area: 'avatar';
 }
 .suggestionAvatar{
     margin-top: 2vh;
     width: 6vh;
-    height: 5vh;
+    height: 7vh;
     border-radius: 50%;
     grid-area: 'suggestionAvatar';   
 }
 .myName{
     flex-direction:column;
     grid-area: 'myName';
+    width: min-content;
+    height: min-content;
 } 
 .suggestionName{
+    margin-top:3;
     height: 3vh;
     flex-direction:column;
     grid-area: 'suggestionName';
     font-size: 1.5vh;
+    width: min-content;
+    height: min-content;
 }
 .gray {
     color:rgb(121, 117, 117)
 }
+.suggestionContainer{
+    display: flex; 
+    justify-content: space-between; 
+    width: 100%; 
+}
 
-
+.follow{ 
+    color: blue; 
+    margin-top: 8%;
+    font-size: 58%; }

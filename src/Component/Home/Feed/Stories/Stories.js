@@ -99,39 +99,41 @@ export default function Stories() {
             {
                 breakpoint: 966,
                 settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 3,
+
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
                     slidesToShow: 6,
                     slidesToScroll: 3,
 
                 }
             },
             {
-                breakpoint: 600,
+                breakpoint: 550,
                 settings: {
                     slidesToShow: 5,
                     slidesToScroll: 3,
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 426,
                 settings: {
                     slidesToShow: 4,
                     slidesToScroll: 2
                 }
             },
             {
-                breakpoint: 380,
+                breakpoint: 333,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 2,
                 }
             },
-            {
-                breakpoint: 289,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 2,
-                }
-            },
+
         ]
     };
     return (
