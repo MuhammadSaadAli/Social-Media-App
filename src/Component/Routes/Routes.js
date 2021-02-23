@@ -11,7 +11,7 @@ import SignUp from '../SignUp/Index'
 import Profile from '../Home/Profile/index'
 import Feed from '../Home/Feed/index'
 import Settings from '../Home/Setting/Index'
-
+import Messenger from '../Home/Messenger/Messenger'
 
 export default function Routes() {
   return (
@@ -51,6 +51,11 @@ export default function Routes() {
           <Route path="/setting">
             <Settings />
           </Route>
+
+          <Route path="/messenger">
+            <Messenger />
+          </Route>
+
         </Switch>
       </div>
     </Router>

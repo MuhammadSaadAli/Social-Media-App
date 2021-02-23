@@ -25,12 +25,13 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
+    display: 'block',
+  },
+  search: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
-    },
-  },
-  search: {
+      
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -39,13 +40,14 @@ const useStyles = makeStyles((theme) => ({
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
+    width: '13%',
     },
+    
   },
   searchIcon: {
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      
     padding: theme.spacing(0, 2),
     height: '100%',
     position: 'absolute',
@@ -53,18 +55,23 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    },
   },
   inputRoot: {
     color: 'inherit',
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+      transition: theme.transitions.create('width'),
+      width: '100%',
+      [theme.breakpoints.up('md')]: {
+        width: '20ch',
+      },
     },
   },
   sectionDesktop: {
@@ -78,6 +85,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
+  },
+  Link: {
+    textDecoration: 'none', 
+    color:"black",  
   },
 }));
 
@@ -117,8 +128,8 @@ export default function TopBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}><Link style={{ color: 'black', textDecoration: 'none' }} to='/profile'> Profile </Link> </MenuItem>
-      <MenuItem onClick={handleMenuClose}><Link style={{ color: 'black', textDecoration: 'none' }}  to='/setting'> Settings </Link></MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link className={classes.Link} to='/profile'> Profile </Link> </MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link  className={classes.Link}  to='/setting'> Settings </Link></MenuItem>
     </Menu>
   );
 
@@ -139,7 +150,7 @@ export default function TopBar() {
             <HomeIcon />
           </Badge>
         </IconButton>
-        <Link style={{ color: 'black', textDecoration: 'none' }} to="/feed">Home</Link>
+        <Link  className={classes.Link}  to="/feed">Home</Link>
       </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
@@ -147,7 +158,7 @@ export default function TopBar() {
             <MailIcon />
           </Badge>
         </IconButton>
-        <p>Messages</p>
+        <Link className={classes.Link} to="/messenger">Messages </Link>
       </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
@@ -199,14 +210,15 @@ export default function TopBar() {
               
               <Badge badgeContent={0} color="secondary">
                
-        <Link style={{textDecoration: 'none', color:"black" }} color="secondary" to="/feed"> <HomeIcon /></Link>
+        <Link  className={classes.Link}  to="/feed"> <HomeIcon /></Link>
               </Badge>
             </IconButton>
             <IconButton aria-label="show 4 new mails" color="inherit">
-              
+              <Link className={classes.Link} to="/messenger"> 
               <Badge badgeContent={0} color="secondary">
                 <MailIcon />
               </Badge>
+              </Link>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
               <Badge badgeContent={0} color="secondary">

@@ -51,7 +51,13 @@ const useStyles = makeStyles((theme) => ({
         width: '5vh',
         height: '5vh',
         borderRadius: '50%',
+        marginLeft: '5%',
+        marginRight: '4%',
     },
+    title: {
+        display: 'flex',
+        justifyContent: 'flex-start'
+    }
 }));
 
 export default function HomePosts() {
@@ -101,8 +107,8 @@ export default function HomePosts() {
                             <MoreVertIcon />
                         </IconButton>
                     }
-                    title="Muhammad Saad Ali"
-                    subheader="Ferrari World"
+                    title={<p className={classes.title}>Muhammad Saad Ali</p>}
+                    subheader={<span className={classes.title}>Ferrari World</span>}
                 />
                 <CardMedia
                     className={classes.media}
@@ -149,7 +155,7 @@ export default function HomePosts() {
                 {comment
                     .filter((_, i) => !viewAllComment ? i < 2 : _)
                     .map((com, ind) => (
-                        <div style={{ display: 'flex', justifyContent: 'space-evenly' }} key={ind}>
+                        <div style={{ display: 'flex', justifyContent: 'flex-start' }} key={ind}>
                             <img alt="avatar" className={classes.commentAvatar} src={com.picture} />
                             <div style={{ flexDirection: 'row', textAlign: 'initial' }}>
                                 <div> {com.name}</div>

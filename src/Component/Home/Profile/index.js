@@ -19,7 +19,7 @@ const Profile = () => {
             <br />
             <div>
                 <Grid className='flex' container spacing={1}>
-                    <img alt="Avatar" src={profilePicture} className="avatar" />
+                    <img alt="Avatar" src={profilePicture} className="profileAvatar" />
                     <div >
 
                         <div className='nameSection' >
