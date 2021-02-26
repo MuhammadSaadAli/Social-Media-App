@@ -132,8 +132,6 @@ export default function HomePosts() {
                             <TelegramIcon />
                         </IconButton>
 
-
-
                     </CardActions>
 
                     <CardActions disableSpacing>

@@ -9,7 +9,8 @@ import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 
 // Components
-import Posts from './Posts'
+// import Posts from './Posts'
+import Posts from './Modal/index'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -80,9 +81,14 @@ export default function SimpleTabs() {
                     <Tab label="TAGGED" {...a11yProps(3)} />
                 </Tabs>
             </AppBar>
+
+            {/* <TabPanel className={classes.posts} value={value} index={0}>
+                <Posts />
+            </TabPanel> */}
             <TabPanel className={classes.posts} value={value} index={0}>
                 <Posts />
             </TabPanel>
+
             <TabPanel value={value} index={1}>
                 IGTV
       </TabPanel>

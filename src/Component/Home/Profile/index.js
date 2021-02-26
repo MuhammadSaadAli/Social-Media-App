@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import profilePicture from '../../../Assets/Images/profilePicture.jpg'
 import Topbar from '../Topbar/Topbar'
 import Tabs from './Tabs'
+// import Modal from './Modal/index'
 import './styles.css'
 const Profile = () => {
     const [name, setName] = useState('Muhammad Saad Ali')
@@ -52,8 +53,9 @@ const Profile = () => {
                 {/* Stories Section */}
 
             </div>
-            <div className=''>
+            <div style={{ marginTop: '10%' }} className=''>
                 <Tabs />
+                {/* <Modal /> */}
             </div>
         </div>
     )
