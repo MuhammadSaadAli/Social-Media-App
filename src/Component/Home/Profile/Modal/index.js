@@ -127,14 +127,12 @@ export default function CustomizedDialogs() {
 
             <Grid container spacing={4}>
                 {/* {Array(8).fill(0).map((_, key) => <Grid item xs={4} onClick={handleClickOpen} key={key} > <img src={Kalam} alt="kalam" className={styles.pictures} /> </Grid>)} */}
-                <Grid item xs={4}> <  img onClick={handleClickOpen} src={Kalam} alt="kalam" className={styles.pictures} /> </Grid>
+                <Grid item xs={4}> <img onClick={handleClickOpen} src={Kalam} alt="kalam" className={styles.pictures} /> </Grid>
                 <Grid item xs={4} > <img onClick={handleClickOpen} src={Car} alt="Car" className={styles.pictures} /> </Grid>
                 <Grid item xs={4} > <img onClick={handleClickOpen} src={Mahodand} alt="Mahodand" className={styles.pictures} /> </Grid>
                 <Grid item xs={4} > <img onClick={handleClickOpen} src={profilePicture} alt="profilePicture" className={styles.pictures} /> </Grid>
             </Grid>
             <Dialog maxWidth="md" fullWidth onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
-
-
                 <div className={styles.main} >
                     <div className={styles.paper} >
                         <img alt="profile" src={showDetails} className={styles.paperPicture} />
