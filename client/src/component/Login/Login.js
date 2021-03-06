@@ -77,13 +77,13 @@ const Home = () => {
     event.preventDefault();
     console.log({ loginValues })
     login({ variables: loginValues })
-  } 
+  }
   if (localStorage.getItem(AUTH_TOKEN)) return <Redirect to='/frontpage' />
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={6}>
-        <Grid item xs={12} sm={6}>
+      <Grid container spacing={2}>
+        <Grid item xs={0} sm={6}>
           <div className={classes.grandpa}>
             <div className={classes.mobile}>
               <img src={mobile} alt='Mobile Phone' />
