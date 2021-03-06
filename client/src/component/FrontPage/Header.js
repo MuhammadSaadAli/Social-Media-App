@@ -148,7 +148,7 @@ function Header() {
 
     </Menu>
   );
-  
+
   return (
 
     <div className={classes.grow}>
@@ -190,7 +190,9 @@ function Header() {
             <IconButton aria-label="show 4 new mails" color="inherit">
 
               <Badge badgeContent={0} color="secondary">
-                <RiMessengerLine />
+                <Link to="/messenger">
+                  <RiMessengerLine />
+                </Link>
               </Badge>
             </IconButton>
             <IconButton aria-label="show 4 new mails" color="inherit">
@@ -218,7 +220,7 @@ function Header() {
               {loading ? (
                 <Skeleton variant="circle" width={40} height={40} />
               ) : (
-                  error ? 
+                error ?
                   (
                     <Avatar className={classes.small}
                       alt="Umair_Zafar"
@@ -229,7 +231,7 @@ function Header() {
                       src={`/images/${data.loggedInUser.avatar}`}
                     />
                   )
-                )}
+              )}
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>

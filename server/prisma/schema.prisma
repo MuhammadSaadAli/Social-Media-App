@@ -19,6 +19,13 @@ model User {
   posts       Post[]
   postLikesBy PostLikeBy[]
   Comment     Comment[]
+  followers   Relation[]   @relation(name="relationFollowing")
+  followings  Relation[]   @relation(name="relationFollower")
+}
+model Relation {
+  id          Int          @id @default(autoincrement())
+  follower    User         @relation(name="relationFollower")
+  following   User         @relation(name="relationFollowing")
 }
 
 model Post {
